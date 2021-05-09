@@ -1,4 +1,5 @@
-from arrow import Arrow
+import json
+import arrow
 
 class Paste:
     Author: str
@@ -6,9 +7,10 @@ class Paste:
     Content: str
     Date: str
 
-    def __init__(self, author:str, title: str, content:str, datetime:str):
+    def __init__(self, author:str, title: str, content:str, datetime:arrow.Arrow, link:str):
         self.Author = author
         self.Title = title
         self.Content = content
         self.Date = datetime
+        self.relative_link = link
         
