@@ -13,7 +13,7 @@ PASTES_ARCHIVE_URL = "https://pastebin.com"
 # should be done before fetching, and be initialized accprding to db/local storage of data
 processed_links = DataManager.get_existing_pastes()
 
-def doWork():
+def crawl_pastes():
     print("doing some work")
     tree = Downloader.downloadPage(PASTES_ARCHIVE_URL+"/archive")
     paste_links = tree.xpath('//table[@class="maintable"]//tbody//tr//td[1]//a//@href')
@@ -28,7 +28,7 @@ def doWork():
     
 
 def main():
-    l = task.LoopingCall(doWork)
+    l = task.LoopingCall(crawl_pastes)
     l.start(timeout)
     reactor.run()
 
