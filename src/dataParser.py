@@ -4,7 +4,7 @@ import arrow
 import dateutil
 
 class DataParser:
-    DEFUALT_STRINGS = ["untitiled, guest, unknown, anonymous"]
+    DEFUALT_STRINGS = ["untitled, guest, unknown, anonymous"]
     
     def parse_link(url:str) -> Paste:
         tree = Downloader.downloadPage(url)

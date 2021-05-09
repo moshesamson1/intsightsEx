@@ -6,7 +6,7 @@ import multiprocessing.dummy
 import time
 
 p = multiprocessing.dummy.Pool(10)
-timeout = 600.0 # 10 min timeout
+timeout = 120.0 # 2 min timeout
 
 PASTES_ARCHIVE_URL = "https://pastebin.com"
 
