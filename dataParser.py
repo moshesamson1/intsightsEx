@@ -20,9 +20,4 @@ class DataParser:
         return Paste(author=username, title=title, content=content, datetime=DataParser.strdate_to_arrow(date), link=url.split('/')[-1])
     
     def strdate_to_arrow(strdate: str) -> arrow.Arrow:
-        ts = strdate.split(' ')
-        year = int(ts[2])
-        day = int(ts[1][:-3])
-        month = arrow.get(ts[0],'MMMM').month
-        #todo: create formatting string to directly create a arrow object from string
-        return arrow.get(year, month, day)
+        return arrow.get(strdate, 'MMMM D[(st|nd|rd|th)], YYYY')
