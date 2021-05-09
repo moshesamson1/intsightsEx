@@ -22,7 +22,7 @@ def doWork():
     pastes = p.map(DataParser.parse_link, [PASTES_ARCHIVE_URL+paste_rel_link for paste_rel_link in paste_links if paste_rel_link[1:] not in processed_links])
     writeAll = p.starmap(DataManager.saveToFile, [(p,p.relative_link) for p in pastes if p is not None])
 
-    processed_links.extend(paste_links)
+    processed_links.extend([p.removeprefix('/') for p in paste_links])
 
     print("took " +str( time.time() - start))
     # DataParser.parse_link("")
