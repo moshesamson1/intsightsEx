@@ -25,8 +25,6 @@ def doWork():
     processed_links.extend([p.removeprefix('/') for p in paste_links])
 
     print("took " +str( time.time() - start))
-    # DataParser.parse_link("")
-    # print(main_table)
     
 
 def main():
