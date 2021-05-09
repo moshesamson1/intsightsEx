@@ -3,8 +3,9 @@ from lxml import html
 
 SUCCESS = 200
 
+
 class Downloader:
-    def downloadPage(url:str):
+    def downloadPage(url: str):
         print("downloading url: ", url)
         page = requests.get(url)
         if page.status_code == SUCCESS:
